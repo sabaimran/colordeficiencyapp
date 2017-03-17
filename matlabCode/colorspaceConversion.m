@@ -43,18 +43,36 @@ S = [[ 1, 0, 0]
      [ x, 1, 0]
      [ y, 0, 1]];
  
+sl = 2;
 t = [0 sl*x sl*y]'; % sl to be defined!
 
+%%%%%% PROTANOPE CASE - Yannick version 17.03 %%%%%%
+
+Lm = -0.5;
+Ls = -0.5;
+
+% Projection matrix
+p = [[ 0, Lm, Ls]
+     [ 0, 1, 0]
+     [ 0, 0, 1]];
+ 
+% Whole matrix multiplication
+ALL = LMS2LINEAR * p * LINEAR2LMS;
+
+% Compute transformation
+transfo_rgb = zeros(size(rgb_img));
+transfo_rgb(:,:,1) = ALL(1,1)*rgb_img(:,:,1) + ALL(1,2)*rgb_img(:,:,2) + ALL(1,3)*rgb_img(:,:,3);
+transfo_rgb(:,:,2) = ALL(2,1)*rgb_img(:,:,1) + ALL(2,2)*rgb_img(:,:,2) + ALL(2,3)*rgb_img(:,:,3);
+transfo_rgb(:,:,3) = ALL(3,1)*rgb_img(:,:,1) + ALL(3,2)*rgb_img(:,:,2) + ALL(3,3)*rgb_img(:,:,3);
+
 %transorm the resulting linear rgb back to (nonlinear) srgb
-srgb = linear2srgb(linear_rgb);
+srgb = linear2srgb(transfo_rgb);
 
 
 %% small sanity check
 figure
-subplot 311
+subplot 211
 imshow(rgb_img)
-subplot 312
-imshow(srgb2linear(rgb_img))
-subplot 313
-imshow(linear2srgb(srgb2linear(rgb_img)))
+subplot 212
+imshow(transfo_rgb)
 
