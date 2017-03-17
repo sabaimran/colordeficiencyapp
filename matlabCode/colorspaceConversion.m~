@@ -19,8 +19,8 @@ XYZ2LMS = [[ 0.4002, 0.7076, -0.0808]
 
 LMS2XYZ = inv(XYZ2LMS);
 
-LINEAR2LMS = XYZ2LMS * LINEAR2XYZ ;
-LMS2LINEAR = XYZ2LINEAR * LMS2XYZ ;
+LINEAR2LMS = LINEAR2XYZ * XYZ2LMS;
+LMS2LINEAR = LMS2XYZ * XYZ2LINEAR;
 
 
 
@@ -31,22 +31,25 @@ rgb_img = im2double(imread('apples.jpg'));
 %srbg to linear
 linear_rgb = srgb2linear(rgb_img);
 
-%%%%%%%%%%%% THIS IS FOR THE PROTANOPE CASE %%%%%%%%%%%%%%%%%%%
 % here do r_hat = M^(-1)* S * M *r -  M^(-1) *t
+% ...
+% ...
 
-% user position in the range [-3, 3]
+%%%%%%%%%%%% THIS IS FOR THE PROTANOPE CASE %%%%%%%%%%%%%%%%%%%
+
+% user position
 x = 2;
 y = 2;
 
-%shear matrix
-S = [[ 1, 0, 0]
-     [ x, 1, 0]
-     [ y, 0, 1]];
- 
-t = [0 sl*x sl*y]'; % sl to be defined!
+S = [[ 1, 0.7076, -0.0808]
+     [-0.2263, 1.1653,  0.0457]
+     [ 0     , 0     ,  0.9182]];
+
+
 
 %transorm the resulting linear rgb back to (nonlinear) srgb
 srgb = linear2srgb(linear_rgb);
+
 
 
 %% small sanity check
@@ -54,7 +57,7 @@ figure
 subplot 311
 imshow(rgb_img)
 subplot 312
-imshow(srgb2linear(rgb_img))
+imshow(linear_rgb)
 subplot 313
-imshow(linear2srgb(srgb2linear(rgb_img)))
+imshow(srgb)
 
