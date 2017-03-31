@@ -4,7 +4,11 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
+<<<<<<< HEAD:Recolorize/app/build.gradle
         applicationId "computationalphotography.recolorize"
+=======
+        applicationId "ch.epfl.computationphotography.colordeficiency"
+>>>>>>> bc26a892f47552abd369794ca32d035736730004:ColorDeficiency/app/build.gradle
         minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
