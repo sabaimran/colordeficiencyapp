@@ -22,6 +22,8 @@ blue =      [0 0 1]';
 im = imread('apples.jpg');
 imd = im2double(im);
 
+imgSpectrum = imgToSpectrum(imd);
+
 
 
 
