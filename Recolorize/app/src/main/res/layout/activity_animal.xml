@@ -11,13 +11,13 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/colorBlindButton"
+            android:id="@+id/catButton"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:minWidth="170dp"
-            android:onClick="startColorBlindActivity"
-            android:text="@string/color_blind"/>
+            android:onClick="startCatActivity"
+            android:text="@string/cat"/>
 
     </LinearLayout>
 
@@ -28,13 +28,13 @@
         android:layout_gravity="center">
 
         <Button
-            android:id="@+id/animalButton"
+            android:id="@+id/dogButton"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:minWidth="170dp"
-            android:onClick="startAnimalActivity"
-            android:text="@string/animal"/>
+            android:onClick="startDogActivity"
+            android:text="@string/dog"/>
 
     </LinearLayout>
 
@@ -44,13 +44,13 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/aboutButton"
+            android:id="@+id/SnakeButton"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:minWidth="170dp"
-            android:onClick="showAbout"
-            android:text="@string/about"/>
+            android:onClick="startSnakeActivity"
+            android:text="@string/snake"/>
 
     </LinearLayout>
 

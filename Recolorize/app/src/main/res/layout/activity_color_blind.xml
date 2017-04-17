@@ -11,13 +11,13 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/colorBlindButton"
+            android:id="@+id/protanopiaButton"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:minWidth="170dp"
-            android:onClick="startColorBlindActivity"
-            android:text="@string/color_blind"/>
+            android:onClick="startProtanopiaActivity"
+            android:text="@string/protanopia"/>
 
     </LinearLayout>
 
@@ -28,13 +28,13 @@
         android:layout_gravity="center">
 
         <Button
-            android:id="@+id/animalButton"
+            android:id="@+id/deuteranopiaButton"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:minWidth="170dp"
-            android:onClick="startAnimalActivity"
-            android:text="@string/animal"/>
+            android:onClick="startDeuteranopiaActivity"
+            android:text="@string/deuteranopia"/>
 
     </LinearLayout>
 
@@ -44,13 +44,13 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/aboutButton"
+            android:id="@+id/tritanopiaButton"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:minWidth="170dp"
-            android:onClick="showAbout"
-            android:text="@string/about"/>
+            android:onClick="startTritanopiaActivity"
+            android:text="@string/tritanopia"/>
 
     </LinearLayout>
 

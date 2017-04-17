@@ -1,4 +1,25 @@
 <resources>
-    <string name="app_name">Recolorize</string>
+    <string name="app_name">AltVis</string>
     <string name="action_settings">Settings</string>
+    <string name="color_blind">Color-Blind Vision</string>
+    <string name="animal">Animal Vision</string>
+    <string name="about">About Us</string>
+    <string name="protanopia">Protanopia Vision</string>
+    <string name="deuteranopia">Deuteranopia Vision</string>
+    <string name="tritanopia">Tritanopia Vision</string>
+    <string name="cat">Cat Vision</string>
+    <string name="dog">Dog Vision</string>
+    <string name="snake">Snake Vision</string>
+    <string name="app_about">AltVis is an app that allows you to see the world in a different way. We created 2 different modes for that:
+\n\n
+- A Color-Blind help tool that allows the user to modify the colors of the image/camera by running its finger across the screen. The default image will be as a color-blind people would see it (we implemented 3 different cases of color-blind people : protanopes, deuteranopes and tritanopes).
+\n
+- An Animal Vision simulator that simulates the world as an animal would see it. We implemented visions of cats, dogs and snakes. Keep in mind that animals have different sensors than us, so it\'s impossible to reproduce it exactly.
+\n\n\n
+This app was developped in the scope of the EPFL course \"Computational Photography\" (given by professor Sabine Sünstruck) by a group of 4 students:\n
+Amimul Ihsan\n
+Chiara Orvati\n
+Saba Imran\n
+Yannick Grimault\n\n
+The project was supervised by Sami Arpa.</string>
 </resources>
