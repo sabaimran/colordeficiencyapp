@@ -22,7 +22,7 @@ end
 %%need to get the "center of gravity", i.e combine wavelength and
 %%spectral values so as to get a single wavelength
 spectrValues = spectrValues/sum(spectrValues);
-finalWavelength = sum(spectrValues .* flip(sensitivities));
+finalWavelength = sum(spectrValues .* sensitivities);
 [r, g, b] = wavelength2rgb(finalWavelength);
 
 %normalize, i.e. convert to double

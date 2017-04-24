@@ -15,7 +15,11 @@ for x=1:Nx
         R = in(x,y,1);
         G = in(x,y,2);
         B = in(x,y,3);
-        img(x,y,:) = rgb2Animal(R, G, B, sensitivities);
+        [r, g, b] = rgb2Animal(R, G, B, sensitivities);
+        img(x,y,1) = r;
+        img(x,y,2) = g;
+        img(x,y,3) = b;
+        
     end
 end
 

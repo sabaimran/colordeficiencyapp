@@ -8,7 +8,7 @@ imd = im2double(im);
 
 %% define sensitivities/ cones
 %HVS: blue cone: 420 nm // green cone: 530 nm // red cone: 560 nm
-sensitivities = [420 530 560]; %BLUE GREEN RED
+sensitivities = [390 450]; %BLUE GREEN RED
 
 %% convert the input image to the simulated rgb values
 animalImg = img2Animal(imd, sensitivities);
@@ -26,8 +26,6 @@ finalAnimalVision(:,:,3) = simulated_lab(:,:,3);
 finalAnimalVision = lab2rgb(finalAnimalVision);
 
 imshow(finalAnimalVision);
-
-
 
 
 
