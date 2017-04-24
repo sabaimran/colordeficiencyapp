@@ -1,8 +1,10 @@
 function spectrum =rgb2spectrum(red, green, blue)
 % converts an rgb triplet to a spectrum with 10 bins, ranging from 380nm to
-% 720 nm
+% 720 nm (380   414   448   482   516   550   584   618   652   686   720)
+% every bin has 34 wavelengths in it
+% red, green, and blue : must be between 0 and 1!
+
 % ressource: "RGB to spectrum for reflectances" by Brian Smits
-% red, green, and blue must be bewtween 0 and 1!
 
 if(~(0 <= red && red <= 1 && 0 <= green && green <= 1 && 0 <= blue && blue <= 1))
     error('values of red, green blue must be between 0 and 1');
