@@ -1,3 +1,6 @@
+%%% Author: Chiara Orvati, 231027
+
+
 function [r, g ,b] = wavelength2rgb(lambda)
 % lambda is the wavelength in nm and ranges from 380 to 720 nm
 % to every 10 nm one rgb value is associated
@@ -158,6 +161,7 @@ switch l
         b = 0;
 
     otherwise
+        disp(lambda)
         error('no bin could be assigned');
 end
 

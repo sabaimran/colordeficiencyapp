@@ -1,3 +1,5 @@
+%%% Author: Chiara Orvati, 231027
+
 function [r, g, b] = rgb2Animal(R,G,B,sensitivities)
 % rgb2Animal: transforms an RGB input triplet to a simulated rgb triplet in
 % the animal vision using the specified cone sensitivities
