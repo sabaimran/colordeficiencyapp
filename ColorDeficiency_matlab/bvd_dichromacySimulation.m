@@ -90,7 +90,7 @@ imshow(RGBD)
 %% for tritanopes (missing S) from Review of Color Blindness Removal Methods using Image Processing
 TRIT = [[1,0,0]
         [0,1,0]
-        [0.3707,-0.5864,0]];
+        [-0.012245,0.072035,0]];
 QT = zeros(size(rgb_img));
 
 %find new stimulus for deut
