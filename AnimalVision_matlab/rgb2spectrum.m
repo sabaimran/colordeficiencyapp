@@ -1,3 +1,5 @@
+%%% Author: Chiara Orvati, 231027
+
 function spectrum =rgb2spectrum(red, green, blue)
 % converts an rgb triplet to a spectrum with 10 bins, ranging from 380nm to
 % 720 nm (380   414   448   482   516   550   584   618   652   686   720)

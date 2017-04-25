@@ -1,3 +1,5 @@
+%%% Author: Chiara Orvati, 231027
+
 close all;
 clear all;
 
@@ -5,10 +7,11 @@ clear all;
 im = imread('apples.jpg');
 imd = im2double(im);
 
-
 %% define sensitivities/ cones
-%HVS: blue cone: 420 nm // green cone: 530 nm // red cone: 560 nm
-sensitivities = [390 450]; %BLUE GREEN RED
+%HVS: 
+%(blue: 435 nm // green : 546 nm // red: 700 nm)
+%DEER: 455 nm // 537 nm
+sensitivities = [455 537]; %ASCENDING ORDER!
 
 %% convert the input image to the simulated rgb values
 animalImg = img2Animal(imd, sensitivities);

@@ -1,3 +1,5 @@
+%%% Author: Chiara Orvati, 231027
+
 function img = img2Animal(in, sensitivities)
 % transforms every RGB triplet of the input image to the simulated animal
 % vision rgb triplet
