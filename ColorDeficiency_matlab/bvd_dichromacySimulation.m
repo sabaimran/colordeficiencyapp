@@ -24,7 +24,7 @@ Q(:,:,2) = rgb_img(:,:,1)*RGBtoLMS(2,1)+rgb_img(:,:,2)*RGBtoLMS(2,2)+rgb_img(:,:
 % short 
 Q(:,:,3) = rgb_img(:,:,1)*RGBtoLMS(3,1)+rgb_img(:,:,2)*RGBtoLMS(3,2)+rgb_img(:,:,3)*RGBtoLMS(3,3);
 
-%% for protanopes
+%% for protanopes from from Intellignet Modification for daltonization process of digitized paintings
 PROT = [[0,2.02344,-2.5281]
         [0,1,0]
         [0,0,1]];
@@ -54,7 +54,69 @@ subplot 211
 imshow(rgb_img)
 subplot 212
 imshow(RGBP)
-    
+
+%% for deuteranopes (missing M) from Review of Color Blindness Removal Methods using Image Processing
+DEUT = [[1,0,0]
+        [0.494207,0,1.24827]
+        [0,0,1]];
+QD = zeros(size(rgb_img));
+
+%find new stimulus for deut
+%long
+QD(:,:,1) = Q(:,:,1)*DEUT(1,1)+Q(:,:,2)*DEUT(1,2)+Q(:,:,3)*DEUT(1,3);
+% medium
+QD(:,:,2) = Q(:,:,1)*DEUT(2,1)+Q(:,:,2)*DEUT(2,2)+Q(:,:,3)*DEUT(2,3);
+% short 
+QD(:,:,3) = Q(:,:,1)*DEUT(3,1)+Q(:,:,2)*DEUT(3,2)+Q(:,:,3)*DEUT(3,3);
+
+%find corresponding RGB value
+RGBD = zeros(size(rgb_img));
+%long
+RGBD(:,:,1) = QD(:,:,1)*LMStoRGB(1,1)+QD(:,:,2)*LMStoRGB(1,2)+QD(:,:,3)*LMStoRGB(1,3);
+% medium
+RGBD(:,:,2) = QD(:,:,1)*LMStoRGB(2,1)+QD(:,:,2)*LMStoRGB(2,2)+QD(:,:,3)*LMStoRGB(2,3);
+% short 
+RGBD(:,:,3) = QD(:,:,1)*LMStoRGB(3,1)+QD(:,:,2)*LMStoRGB(3,2)+QD(:,:,3)*LMStoRGB(3,3);
+
+
+%% check deuteranope
+figure
+subplot 211
+imshow(rgb_img)
+subplot 212
+imshow(RGBD)
+
+
+%% for tritanopes (missing S) from Review of Color Blindness Removal Methods using Image Processing
+TRIT = [[1,0,0]
+        [0,1,0]
+        [0.3707,-0.5864,0]];
+QT = zeros(size(rgb_img));
+
+%find new stimulus for deut
+%long
+QT(:,:,1) = Q(:,:,1)*TRIT(1,1)+Q(:,:,2)*TRIT(1,2)+Q(:,:,3)*TRIT(1,3);
+% medium
+QT(:,:,2) = Q(:,:,1)*TRIT(2,1)+Q(:,:,2)*TRIT(2,2)+Q(:,:,3)*DEUT(2,3);
+% short 
+QT(:,:,3) = Q(:,:,1)*TRIT(3,1)+Q(:,:,2)*TRIT(3,2)+Q(:,:,3)*TRIT(3,3);
+
+%find corresponding RGB value
+RGBT = zeros(size(rgb_img));
+%long
+RGBT(:,:,1) = QT(:,:,1)*LMStoRGB(1,1)+QT(:,:,2)*LMStoRGB(1,2)+QT(:,:,3)*LMStoRGB(1,3);
+% medium
+RGBT(:,:,2) = QT(:,:,1)*LMStoRGB(2,1)+QT(:,:,2)*LMStoRGB(2,2)+QT(:,:,3)*LMStoRGB(2,3);
+% short 
+RGBT(:,:,3) = QT(:,:,1)*LMStoRGB(3,1)+QT(:,:,2)*LMStoRGB(3,2)+QT(:,:,3)*LMStoRGB(3,3);
+
+
+%% check deuteranope
+figure
+subplot 211
+imshow(rgb_img)
+subplot 212
+imshow(RGBT)
 %% find the modified stimulus Q'
 
 %find LMS values for D65 daylight standard illuminance
