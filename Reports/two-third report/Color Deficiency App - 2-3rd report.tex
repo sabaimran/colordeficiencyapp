@@ -173,6 +173,20 @@ For now, our application doesn't do much. We simply have a menu that can redirec
 \end{figure}
 
 
+\subsection{Using the camera in Android, with OpenCV 3.2 (Ihsan Aquil)}
+
+We tried to implement camera operations in parallel to the main app, so we could work faster. We'll need to merge everything later on though. For now, this is what we've implemented so far that will be used for the camera:
+
+\begin{itemize}
+\item \verb|MainActivity|: Sets camera functions and controls the camera based on user choice
+\item \verb|onCreate(Bundle savedInstanceState)|: Makes the camera visible on android phone
+\item \verb|onPause()|: Pauses the camera based on user's choice
+\item \verb|onDestroy()|: Stops the camera feed
+\item \verb|onResume()|: Resumes the camera
+\item \verb|onCameraViewStarted()|: Gets the RGB value and convert it to Grey level
+\end{itemize}
+
+
 
 %%%%% Ne rien rajouter à partir d'ici
 
