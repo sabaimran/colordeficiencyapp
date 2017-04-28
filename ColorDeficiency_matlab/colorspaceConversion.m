@@ -46,7 +46,7 @@ S = [[ 1, 0, 0]
 sl = 2;
 t = [0 sl*x sl*y]'; % sl to be defined!
 
-%%%%%% PROTANOPE CASE - Yannick version 17.03 %%%%%%
+%%%%%% PROTANOPE CASE - Yannick version 17.03.2017 %%%%%%
 
 Lm = -0.5;
 Ls = -0.5;
