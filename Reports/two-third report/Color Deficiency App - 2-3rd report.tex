@@ -63,19 +63,19 @@ Let us first specify the transformation applied to a single pixel of the input i
 RGB triplet: The first step is to convert the RGB triplet to a spectral representation ranging from 380 - 720
 nm using 10 equally sized bins. To obtain this representation we use the RGB values to linearly combine the
 known spectra of white, yellow, magenta, cyan, red, green and blue, making use of the method and
-spectral data described in [1]\footnote{Smits, Brian. "An RGB to Spectrum Conversion for Reflectances." (2000).}.
+spectral data described in \footnote{Smits, Brian. "An RGB to Spectrum Conversion for Reflectances." (2000).}.
 
 In order to simulate the vision of a specific animal, we need to specify its cone sensitivities: this is done by
 defining a certain number of wavelengths which correspond to the peak cone sensitivities of the respective
 animal. As an example, the white-tailed deer has peak cone sensitivities at approximately 455 nm and 537
-nm [2]\footnote{VerCauteren, Kurt C. and Pipas, Michael J., "A review of color vision in white-tailed deer" (2003). USDA
+nm \footnote{VerCauteren, Kurt C. and Pipas, Michael J., "A review of color vision in white-tailed deer" (2003). USDA
 National Wildlife Research Center - Sta Publications. Paper 284.}. Having the spectral representation of the RGB triplet and the wavelengths to which the animal is most
 sensitive, we can now look up the values of the spectrum at these wavelengths. For the case of the deer
 this gives us two values, let’s say 0.4 and 0.6. Using the inner product of the wavelengths with the spectrum
 values, we obtain the wavelength of the colour perceived by the animal, i.e., 0.4*455 + 0.6*537 = 504 nm for
 the example of the deer. However, before applying the inner product we need to normalize the spectral
 values, so as to make sure to stay in the range 380 - 720 nm. The final step is to map the obtained
-wavelength back to an RGB triplet, which is done using the values provided by [3]\footnote{\url{https://academo.org/demos/wavelength-to-colour-relationship/} . Accessed April 2017.} and using a discretization
+wavelength back to an RGB triplet, which is done using the values provided by \footnote{\url{https://academo.org/demos/wavelength-to-colour-relationship/} . Accessed April 2017.} and using a discretization
 of 10 nm per RGB value.
 
 \vspace{5mm}
@@ -83,7 +83,7 @@ of 10 nm per RGB value.
 In order to see the input image through the eyes of an animal we apply the above transformation to every
 pixel. To make the image appear more natural, we would like to preserve the luminance of the input image.
 Hence, we transform both input and simulated image to CIE 1976 L*a*b space using the Matlab built-in
-function rgb2lab. To assemble the final image, we use the luminance values of the original image and the
+function  \verb|rgb2lab|. To assemble the final image, we use the luminance values of the original image and the
 a*b* values of the simulated image and transform it back to RGB.
 
 \subsection{Matlab Code}
