@@ -1,5 +1,6 @@
 clear all;
 close all;
+%%% author: Saba Imran
 
 %% constants used for LMS - RGB conversions and read image
 
