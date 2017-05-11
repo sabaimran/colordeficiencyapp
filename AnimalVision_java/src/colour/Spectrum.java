@@ -1,5 +1,9 @@
 package colour;
 
+//using version 3.6.1 of Apache Commons Math
+import org.apache.commons.math3.analysis.interpolation.*;
+import org.apache.commons.math3.analysis.polynomials.PolynomialSplineFunction;
+
 public class Spectrum {
 
 	private static final Spectrum WHITESPECTRUM = new Spectrum(
@@ -80,26 +84,46 @@ public class Spectrum {
 
 		return spectrum;
 	}
-	
-	
-	/**returns the the value of the spectrum at wavelength lambda using interpolation
+
+	/**
+	 * returns the the value of the spectrum at wavelength lambda using
+	 * interpolation
 	 * 
-	 * @param samplePoints positions where the spectrum is known
-	 * @param s the known (discrete) values of the spectrum
-	 * @param lambda the wavelength at which we want to tkno the value of the spectrum
+	 * @param samplePoints
+	 *            positions where the spectrum is known
+	 * @param s
+	 *            the known (discrete) values of the spectrum
+	 * @param lambda
+	 *            the wavelength at which we want to tkno the value of the
+	 *            spectrum
 	 * @return the value of the spectrum at wavelength lambda
 	 */
-	public static double getInterpolated(int[] samplePoints, Spectrum s, int lambda) {
-		if(!(320 <= lambda && lambda<= 720)) {
-		    throw new IllegalArgumentException("x must be between 320 and 720 nm");
+	public static double getInterpolated(double[] samplePoints, Spectrum s, int lambda) {
+		if (!(320 <= lambda && lambda <= 720)) {
+			throw new IllegalArgumentException("x must be between 320 and 720 nm");
 		}
-		if(! (samplePoints.length == s.spectrum.length)) {
+		if (!(samplePoints.length == s.spectrum.length)) {
 			throw new IllegalArgumentException("samplePoints and spectrum must have the same length");
 		}
-		
-		//TODO
-		
-		return 0;
+
+		// as the sample points are {397, 431, 465, 499, 533, 567, 601, 635,
+		// 669, 703} it is possible to have lambda outside this range. In that case interpolate wouldn't work
+		double l;
+		double maxV = samplePoints[samplePoints.length - 1];
+		double minV = samplePoints[0];
+		if (lambda < minV) {
+			l = minV;
+		} else if (lambda > maxV) {
+			l = maxV;
+		} else {
+			l = lambda;
+		}
+
+		LinearInterpolator li = new LinearInterpolator();
+		PolynomialSplineFunction psf = li.interpolate(samplePoints, s.spectrum);
+		double interpolV = psf.value(l);
+
+		return interpolV;
 	}
 
 	/**

@@ -5,20 +5,17 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import org.opencv.core.*;
+import org.opencv.core.Core;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 
 import animals.Animal;
-
-import org.opencv.core.Core;
-import org.opencv.core.Scalar;
-import org.opencv.core.CvType;
-import org.opencv.core.Mat;
+import colour.Colour;
 
 public class MainActivity {
 
@@ -27,19 +24,28 @@ public class MainActivity {
 		Mat image = Imgcodecs.imread(
 				"/Users/chiara/Documents/EPFL/Master/Ma2/CompPhotography/project/javaImplementation/AnimalVision/src/Main/apples.jpg");
 
-		//transform image to double
+		//transform image to double 
+		// NOT SURE WHETHER THIS DOES WHAT WE WANT => WANT EQUIVALENT OF im2double IN MATLAB
+		Mat imDouble = null;
+		//use convertTo(image, CvType.CV_64FC3) ? 
+		image.convertTo(image, CvType.CV_64FC3);
+		Core.normalize(image, imDouble, 0.0, 1.0, Core.NORM_MINMAX);
+		
 		
 		//define sensitivities of animal
 		int[] sensitivities = new int[] {450, 550};
 		Animal someAnimal = new Animal(sensitivities);
 		
-		//convert image to animal vision using rgb2Animal
+		// TODO convert image to animal vision using rgb2Animal
+		// loop through all pixels (or use GPU) to do this to all pixels:
+		// Colour c = someAnimal.rgb2Animal(r, g, b);
+		//
 		
-		//transform original image and simulated to CIELAB space
+		//TODO transform original image and simulated to CIELAB space
 		
-		//create final image by taking L of original image and a,b of simulated and transform back
+		//TODO create final image by taking L of original image and a,b of simulated and transform back
 		
-		//displayImage(Mat2BufferedImage(image));
+		//TODO displayImage(Mat2BufferedImage(image));
 		
 
 	}
@@ -65,7 +71,6 @@ public class MainActivity {
 	}
 
 	public static void displayImage(Image img2) {
-		// BufferedImage img=ImageIO.read(new File("/HelloOpenCV/lena.png"));
 		ImageIcon icon = new ImageIcon(img2);
 		JFrame frame = new JFrame();
 		frame.setLayout(new FlowLayout());

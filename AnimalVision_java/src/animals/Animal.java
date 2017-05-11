@@ -36,10 +36,10 @@ public class Animal {
 	 *            peak cone sensitivities of the animal
 	 * @return the colour perceived by the animal
 	 */
-	public Colour rgb2Animal(double r, double g, double b, int[] sensitivities) {
+	public Colour rgb2Animal(double r, double g, double b) {
 		//lets say we sampled the spectrum at wavelengths linspace(380, 686, 10) + 17,
 		//which corresponds to the middle of each bin
-		int[] samplePoints = new int[] {397, 431, 465, 499, 533, 567, 601, 635, 669, 703};
+		double[] samplePoints = new double[] {397, 431, 465, 499, 533, 567, 601, 635, 669, 703};
 		Spectrum spectrum = rgb2spectrum(r,g,b); // spectrum of the specified colour
 		
 		//get values of the spectrum at the cone sensitivities

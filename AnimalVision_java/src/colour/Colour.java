@@ -11,11 +11,15 @@ public class Colour {
 
 	double r, g, b;
 
-	/**A colour represented by its RGB values lying in the range [0,1]
+	/**
+	 * A colour represented by its RGB values lying in the range [0,1]
 	 * 
-	 * @param r amount of red
-	 * @param g amount of green
-	 * @param b amount of blue
+	 * @param r
+	 *            amount of red
+	 * @param g
+	 *            amount of green
+	 * @param b
+	 *            amount of blue
 	 */
 	public Colour(double r, double g, double b) {
 		if (!(0.0 <= r && r <= 1.0 && 0.0 <= g && g <= 1.0 && 0.0 <= b && b <= 1.0)) {
@@ -29,12 +33,13 @@ public class Colour {
 
 	/**
 	 * 
-	 * maps a wavelength in the range [380, 720] nm to the correpsonding RGB triplet
-	 * using the values provided by
+	 * maps a wavelength in the range [380, 720] nm to the correpsonding RGB
+	 * triplet using the values provided by
 	 * "https://academo.org/demos/wavelength-to-colour-relationship/"
 	 * Discretization: to every 10 nm one rgb value is associated.
 	 * 
-	 * @param lambda the wavelength in nm and ranges from 380 to 720 nm
+	 * @param lambda
+	 *            the wavelength in nm and ranges from 380 to 720 nm
 	 * @return the RGB color corresponding to lambda
 	 */
 	public static Colour wavelength2rgb(int lambda) {
@@ -231,6 +236,33 @@ public class Colour {
 		}
 
 		return new Colour(r / 255., g / 255., b / 255.);
+	}
+
+	/**
+	 * gets R value of Colour
+	 * 
+	 * @return r
+	 */
+	public double getR() {
+		return r;
+	}
+
+	/**
+	 * gets G value of Colour
+	 * 
+	 * @return g
+	 */
+	public double getG() {
+		return g;
+	}
+
+	/**
+	 * gets B value of Colour
+	 * 
+	 * @return b
+	 */
+	public double getB() {
+		return b;
 	}
 
 }
