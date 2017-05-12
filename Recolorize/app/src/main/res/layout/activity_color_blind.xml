@@ -16,6 +16,7 @@
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:minWidth="170dp"
+            android:minHeight="150dp"
             android:onClick="startProtanopiaActivity"
             android:text="@string/protanopia"/>
 
@@ -33,6 +34,7 @@
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:minWidth="170dp"
+            android:minHeight="150dp"
             android:onClick="startDeuteranopiaActivity"
             android:text="@string/deuteranopia"/>
 
@@ -49,6 +51,7 @@
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:minWidth="170dp"
+            android:minHeight="150dp"
             android:onClick="startTritanopiaActivity"
             android:text="@string/tritanopia"/>
 
