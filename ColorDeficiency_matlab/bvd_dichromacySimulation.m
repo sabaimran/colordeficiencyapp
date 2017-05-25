@@ -55,6 +55,7 @@ subplot 211
 imshow(rgb_img)
 subplot 212
 imshow(RGBP)
+imwrite(im2uint8(RGBP), 'fruits_protanope.jpg')
 
 %% for deuteranopes (missing M) from Review of Color Blindness Removal Methods using Image Processing
 DEUT = [[1,0,0]
@@ -86,6 +87,7 @@ subplot 211
 imshow(rgb_img)
 subplot 212
 imshow(RGBD)
+imwrite(im2uint8(RGBD), 'fruits_deuteranope.jpg')
 
 
 %% for tritanopes (missing S) from Review of Color Blindness Removal Methods using Image Processing
@@ -118,6 +120,9 @@ subplot 211
 imshow(rgb_img)
 subplot 212
 imshow(RGBT)
+imwrite(im2uint8(RGBT), 'fruits_tritanope.jpg')
+
+
 %% find the modified stimulus Q'
 
 %find LMS values for D65 daylight standard illuminance

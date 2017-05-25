@@ -7,51 +7,48 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/catButton"
-            android:layout_width="fill_parent"
+        <ImageButton
+            android:layout_width="0dp"
             android:layout_height="fill_parent"
+            android:layout_weight="1"
             android:layout_gravity="center"
-            android:minWidth="170dp"
-            android:onClick="startCatActivity"
-            android:text="@string/cat"/>
+            android:onClick="startBumblebeeActivity"
+            android:background="@mipmap/bumblebee_button"/>
 
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:onClick="startDeerActivity"
+            android:background="@mipmap/deer_button"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/dogButton"
-            android:layout_width="fill_parent"
+        <ImageButton
+            android:layout_width="0dp"
             android:layout_height="fill_parent"
+            android:layout_weight="1"
             android:layout_gravity="center"
-            android:minWidth="170dp"
-            android:onClick="startDogActivity"
-            android:text="@string/dog"/>
+            android:onClick="startBirdActivity"
+            android:background="@mipmap/bird_button"/>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/SnakeButton"
-            android:layout_width="fill_parent"
+        <ImageButton
+            android:layout_width="0dp"
             android:layout_height="fill_parent"
+            android:layout_weight="1"
             android:layout_gravity="center"
-            android:minWidth="170dp"
-            android:onClick="startSnakeActivity"
-            android:text="@string/snake"/>
-
+            android:onClick="startDragonActivity"
+            android:background="@mipmap/dragon_button"/>
     </LinearLayout>
 
 </LinearLayout>
