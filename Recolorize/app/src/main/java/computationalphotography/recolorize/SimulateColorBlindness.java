@@ -40,7 +40,7 @@ public class SimulateColorBlindness {
             {-0.012245, 0.072035, 0} }
     );
 
-    public void readIMG(BufferedImage image) throws IOException{
+    public void readIMG(BufferedImage image, int typeOfDeficiency) throws IOException{
         int w = image.getWidth();
         int h = image.getHeight();
         //create new image of same height and width. populate it with the transformed pixels
@@ -59,14 +59,27 @@ public class SimulateColorBlindness {
 
                 //get modified rgb values
                 Matrix RGBPixel = new Matrix(new double[][] {{R},{G},{B}});
-
-                Matrix swag = deuteranope(RGBPixel);
+                Matrix swag = null;
+                switch(typeOfDeficiency) {
+                    case 0:
+                        swag = protanope(RGBPixel);
+                        break;
+                    case 1:
+                        swag = deuteranope(RGBPixel);
+                        break;
+                    case 2:
+                        swag = tritanope(RGBPixel);
+                        break;
+                    default:
+                        swag = protanope(RGBPixel);
+                        break;
+                }
 
                 double[][] newRGB = swag.getArray();
 
-                int red = Math.abs((int)newRGB[0][0]);
-                int green = Math.abs((int)(newRGB[1][0]));
-                int blue = Math.abs((int)(newRGB[2][0]));
+                int red = (newRGB[0][0] > 255) ? 255 : (Math.abs((int)newRGB[0][0]) & 0xff);
+                int green = (newRGB[1][0] > 255) ? 255 : (Math.abs((int)newRGB[1][0]) & 0xff);
+                int blue = (newRGB[2][0] > 255) ? 255 : (Math.abs((int)newRGB[2][0]) & 0xff);
 
                 int rgb = new Color(red, green, blue).getRGB();
 
