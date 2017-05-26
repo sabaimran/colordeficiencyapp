@@ -16,7 +16,6 @@ img_name = 'landscape';
 
 rgb_img = im2double(imread(strcat(img_name, '.jpg')));
 % disp(rgb_img);
->>>>>>> 5ff987a1f2bccf5fc16225139201c1a63a41ccc7
 
 %% need to do LT on each RGB pixel to get Q stimulus
 
@@ -50,8 +49,6 @@ RGBP(:,:,1) = QP(:,:,1)*LMStoRGB(1,1)+QP(:,:,2)*LMStoRGB(1,2)+QP(:,:,3)*LMStoRGB
 RGBP(:,:,2) = QP(:,:,1)*LMStoRGB(2,1)+QP(:,:,2)*LMStoRGB(2,2)+QP(:,:,3)*LMStoRGB(2,3);
 % short 
 RGBP(:,:,3) = QP(:,:,1)*LMStoRGB(3,1)+QP(:,:,2)*LMStoRGB(3,2)+QP(:,:,3)*LMStoRGB(3,3);
-
-disp(RGBP);
 
 
 %% check protanope
