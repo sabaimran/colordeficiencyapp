@@ -41,6 +41,13 @@ public class SimulateColorBlindness {
             {-0.012245, 0.072035, 0} }
     );
 
+    /*
+    input: 0: protanope
+           1: deuteranope
+           2: tritanope
+    output: none
+    side effects: creates a buffered image object with the modified result
+    */
     public void readIMG(BufferedImage image, int typeOfDeficiency) throws IOException{
         int w = image.getWidth();
         int h = image.getHeight();
