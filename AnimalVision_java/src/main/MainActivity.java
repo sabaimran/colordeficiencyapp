@@ -24,29 +24,35 @@ public class MainActivity {
 		Mat image = Imgcodecs.imread(
 				"/Users/chiara/Documents/EPFL/Master/Ma2/CompPhotography/project/javaImplementation/AnimalVision/src/Main/apples.jpg");
 
-		//transform image to double 
-		// NOT SURE WHETHER THIS DOES WHAT WE WANT => WANT EQUIVALENT OF im2double IN MATLAB
+		// transform image to double
+		// NOT SURE WHETHER THIS DOES WHAT WE WANT => WANT EQUIVALENT OF
+		// im2double IN MATLAB
 		Mat imDouble = null;
-		//use convertTo(image, CvType.CV_64FC3) ? 
+		// use convertTo(image, CvType.CV_64FC3) ?
 		image.convertTo(image, CvType.CV_64FC3);
 		Core.normalize(image, imDouble, 0.0, 1.0, Core.NORM_MINMAX);
-		
-		
-		//define sensitivities of animal
-		int[] sensitivities = new int[] {450, 550};
+
+		// define sensitivities of animal
+		// BIRD: [380 445 508 565]
+		// BUMBLEBEE : [380 424 539]
+		// DEER : [455 537]
+		// FANTASY: [550 700]
+		int[] sensitivities = new int[] { 450, 550 };
 		Animal someAnimal = new Animal(sensitivities);
-		
+
 		// TODO convert image to animal vision using rgb2Animal
 		// loop through all pixels (or use GPU) to do this to all pixels:
 		// Colour c = someAnimal.rgb2Animal(r, g, b);
 		//
-		
-		//TODO transform original image and simulated to CIELAB space
-		
-		//TODO create final image by taking L of original image and a,b of simulated and transform back
-		
-		//TODO displayImage(Mat2BufferedImage(image));
-		
+
+		// TODO transform original image and simulated image to CIELAB space
+		// (probably a function in opencv that does this)
+
+		// TODO create final image by taking L- component of original image and
+		// a,b-components of simulated image and transform the assembled image
+		// back to RGB
+
+		// TODO displayImage(Mat2BufferedImage(image));
 
 	}
 
