@@ -4,14 +4,14 @@ close all;
 clear all;
 
 %% read image and transform to double 
-im = imread('apples.jpg');
+im = imread('fruits.jpg');
 imd = im2double(im);
 
 %% define sensitivities/ cones
 %HVS: 
 %(blue: 435 nm // green : 546 nm // red: 700 nm)
 %DEER: 455 nm // 537 nm
-sensitivities = [600 700]; %ASCENDING ORDER!
+sensitivities = [380 720]; %ASCENDING ORDER!
 
 %% convert the input image to the simulated rgb values
 animalImg = img2Animal(imd, sensitivities);

@@ -19,29 +19,36 @@ public class AnimalActivity extends Activity {
         setContentView(R.layout.activity_animal);
     }
 
-    public void startCatActivity(View view) {
+    public void startBumblebeeActivity(View view) {
         startCameraActivity(0);
     }
 
-    public void startDogActivity(View view) {
+    public void startDeerActivity(View view) {
         startCameraActivity(1);
     }
 
-    public void startSnakeActivity(View view) {
+    public void startBirdActivity(View view) {
         startCameraActivity(2);
+    }
+
+    public void startDragonActivity(View view) {
+        startCameraActivity(3);
     }
 
     public void startCameraActivity(int mode) {
         String name;
         switch (mode){
             case 0:
-                name = "Cat Vision";
+                name = "Bumblebee Vision";
                 break;
             case 1:
-                name = "Dog Vision";
+                name = "Deer Vision";
                 break;
             case 2:
-                name = "Snake Vision";
+                name = "Bird Vision";
+                break;
+            case 3:
+                name = "Dragon Vision";
                 break;
             default:
                 name = "--unknown--";

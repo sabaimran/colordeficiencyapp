@@ -12,8 +12,11 @@ LMStoRGB = inv(RGBtoLMS);
 % LMS constants from Intellignet Modification for daltonization process of
 % digitized paintings
         
-rgb_img = im2double(imread('apples.jpg'));
-disp(rgb_img);
+img_name = 'landscape';
+
+rgb_img = im2double(imread(strcat(img_name, '.jpg')));
+% disp(rgb_img);
+>>>>>>> 5ff987a1f2bccf5fc16225139201c1a63a41ccc7
 
 %% need to do LT on each RGB pixel to get Q stimulus
 
@@ -57,6 +60,7 @@ subplot 211
 imshow(rgb_img)
 subplot 212
 imshow(RGBP)
+imwrite(im2uint8(RGBP), strcat(img_name, '_protanope.jpg'))
 
 %% for deuteranopes (missing M) from Review of Color Blindness Removal Methods using Image Processing
 DEUT = [[1,0,0]
@@ -88,6 +92,7 @@ subplot 211
 imshow(rgb_img)
 subplot 212
 imshow(RGBD)
+imwrite(im2uint8(RGBD), strcat(img_name, '_deuteranope.jpg'))
 
 
 %% for tritanopes (missing S) from Review of Color Blindness Removal Methods using Image Processing
@@ -120,6 +125,9 @@ subplot 211
 imshow(rgb_img)
 subplot 212
 imshow(RGBT)
+imwrite(im2uint8(RGBT), strcat(img_name, '_tritanope.jpg'))
+
+
 %% find the modified stimulus Q'
 
 %find LMS values for D65 daylight standard illuminance

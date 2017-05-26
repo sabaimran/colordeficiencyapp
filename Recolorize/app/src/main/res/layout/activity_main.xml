@@ -7,34 +7,32 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/colorBlindButton"
+        <ImageButton
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
-            android:minWidth="170dp"
             android:onClick="startColorBlindActivity"
-            android:text="@string/color_blind"/>
+            android:background="@mipmap/colorblind_mashup"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
         android:layout_gravity="center">
 
-        <Button
-            android:id="@+id/animalButton"
+        <ImageButton
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
-            android:minWidth="170dp"
             android:onClick="startAnimalActivity"
-            android:text="@string/animal"/>
+            android:background="@mipmap/animal_mashup"/>
 
     </LinearLayout>
 
@@ -44,11 +42,9 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/aboutButton"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
-            android:minWidth="170dp"
             android:onClick="showAbout"
             android:text="@string/about"/>
 
