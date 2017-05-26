@@ -16,7 +16,7 @@
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:onClick="startProtanopiaActivity"
-            android:background="@mipmap/protanopia_up"/>
+            android:background="@mipmap/land_protanopia_up"/>
 
     </LinearLayout>
 
@@ -32,7 +32,7 @@
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:onClick="startDeuteranopiaActivity"
-            android:background="@mipmap/deuteranopia_middle"/>
+            android:background="@mipmap/land_deuteranopia_middle"/>
 
     </LinearLayout>
 
@@ -47,7 +47,7 @@
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:onClick="startTritanopiaActivity"
-            android:background="@mipmap/tritanopia_down"/>
+            android:background="@mipmap/land_tritanopia_down"/>
 
     </LinearLayout>
 
