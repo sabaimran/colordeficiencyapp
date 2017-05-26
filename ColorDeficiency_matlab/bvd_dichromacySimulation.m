@@ -12,8 +12,8 @@ LMStoRGB = inv(RGBtoLMS);
 % LMS constants from Intellignet Modification for daltonization process of
 % digitized paintings
         
-rgb_img = im2double(imread('fruits.jpg'));
-% disp(rgb_img);
+rgb_img = im2double(imread('apples.jpg'));
+disp(rgb_img);
 
 %% need to do LT on each RGB pixel to get Q stimulus
 
@@ -47,6 +47,8 @@ RGBP(:,:,1) = QP(:,:,1)*LMStoRGB(1,1)+QP(:,:,2)*LMStoRGB(1,2)+QP(:,:,3)*LMStoRGB
 RGBP(:,:,2) = QP(:,:,1)*LMStoRGB(2,1)+QP(:,:,2)*LMStoRGB(2,2)+QP(:,:,3)*LMStoRGB(2,3);
 % short 
 RGBP(:,:,3) = QP(:,:,1)*LMStoRGB(3,1)+QP(:,:,2)*LMStoRGB(3,2)+QP(:,:,3)*LMStoRGB(3,3);
+
+disp(RGBP);
 
 
 %% check protanope
