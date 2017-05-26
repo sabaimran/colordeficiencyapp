@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.lang.Object;
 
 import javax.imageio.*;
 import Jama.*;
@@ -50,12 +51,12 @@ public class SimulateColorBlindness {
         for(int row = 0; row < h; row++){
             for(int col = 0; col < w; col++) {
 
-                Color c = new Color(image.getRGB(col, row));
+                int init_rgb = image.getRGB(col, row);
 
                 //get original RGB values
-                int R = c.getRed();
-                int G = c.getGreen();
-                int B = c.getBlue();
+                int R = init_rgb >> 16 & 0xff;
+                int G = init_rgb >> 8 & 0xff;
+                int B = init_rgb & 0xff;
 
                 //get modified rgb values
                 Matrix RGBPixel = new Matrix(new double[][] {{R},{G},{B}});
@@ -81,7 +82,10 @@ public class SimulateColorBlindness {
                 int green = (newRGB[1][0] > 255) ? 255 : (Math.abs((int)newRGB[1][0]) & 0xff);
                 int blue = (newRGB[2][0] > 255) ? 255 : (Math.abs((int)newRGB[2][0]) & 0xff);
 
-                int rgb = new Color(red, green, blue).getRGB();
+                int rgb = 255;
+                rgb = (rgb << 8) + red;
+                rgb = (rgb << 8) + green;
+                rgb = (rgb << 8) + blue;
 
                 //insert in new image
                 modifiedImage.setRGB(col, row, rgb);
