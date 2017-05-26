@@ -1,4 +1,4 @@
 # colordeficiencyapp
-An app to help the visually impaired. 
+An app to simulate the vision of cone-deficient users.
 
 To use: launch on an Android application
