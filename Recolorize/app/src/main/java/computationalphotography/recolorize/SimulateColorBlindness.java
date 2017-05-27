@@ -41,13 +41,6 @@ public class SimulateColorBlindness {
             {-0.012245, 0.072035, 0} }
     );
 
-    /*
-    input: 0: protanope
-           1: deuteranope
-           2: tritanope
-    output: none
-    side effects: creates a buffered image object with the modified result
-    */
     public void readIMG(BufferedImage image, int typeOfDeficiency) throws IOException{
         int w = image.getWidth();
         int h = image.getHeight();
@@ -131,5 +124,105 @@ public class SimulateColorBlindness {
         Matrix inRGB = LMStoRGB.times(newPixel);
         return inRGB;
 
+    }
+
+    /*input: 0 for PROT
+    1 for DEUT
+    2 for TRIT
+
+    output: a modified coefficient matrix
+    */
+    public Matrix changeCoefficients(int typeOfDeficiency) {
+        double delta = -0.1;
+        Matrix temp = null;
+
+        switch(typeOfDeficiency) {
+            case 0:
+                temp = PROT.copy();
+
+                //less M wavelength
+                temp.set(0, 1, PROT.get(0, 1)-delta);
+                //more S wavelength
+                temp.set(0, 2, PROT.get(0, 2)+delta);
+                break;
+            case 1:
+                temp = DEUT.copy();
+
+                //less L wavelength
+                temp.set(1, 0, DEUT.get(1, 0)-delta);
+                //more S wavelength
+                temp.set(1, 2, DEUT.get(1, 2)+delta);
+                break;
+            case 2:
+                temp = TRIT.copy();
+
+                //less L wavelength
+                temp.set(2, 0, TRIT.get(2, 0)-delta);
+                //more M wavelength
+                temp.set(2, 1, TRIT.get(2, 1)+delta);
+                break;
+            default:
+                return PROT;
+
+        }
+
+
+        return temp;
+    }
+
+    public Matrix projectionSlider(Matrix RGBPixel, Matrix Coefficients) {
+        Matrix inLMS = RGBtoLMS.times(RGBPixel);
+        Matrix newPixel = Coefficients.times(inLMS);
+        Matrix inRGB = LMStoRGB.times(newPixel);
+        return inRGB;
+    }
+    public void modifyIMG(BufferedImage image, int typeOfDeficiency) throws IOException{
+        int w = image.getWidth();
+        int h = image.getHeight();
+        //create new image of same height and width. populate it with the transformed pixels
+        BufferedImage modifiedImage = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+
+        //in the for loop, retrieve the projections of pixels onto a colorblind plane
+        for(int row = 0; row < h; row++){
+            for(int col = 0; col < w; col++) {
+
+                int init_rgb = image.getRGB(col, row);
+
+                //get original RGB values
+                int R = init_rgb >> 16 & 0xff;
+                int G = init_rgb >> 8 & 0xff;
+                int B = init_rgb & 0xff;
+
+                //get modified rgb values
+                Matrix RGBPixel = new Matrix(new double[][] {{R},{G},{B}});
+                Matrix swag = null;
+
+                Matrix coefficients = changeCoefficients(typeOfDeficiency);
+                swag = projectionSlider(RGBPixel, coefficients);
+
+                double[][] newRGB = swag.getArray();
+
+                int red = (newRGB[0][0] > 255) ? 255 : (Math.abs((int)newRGB[0][0]) & 0xff);
+                int green = (newRGB[1][0] > 255) ? 255 : (Math.abs((int)newRGB[1][0]) & 0xff);
+                int blue = (newRGB[2][0] > 255) ? 255 : (Math.abs((int)newRGB[2][0]) & 0xff);
+
+                int rgb = 255;
+                rgb = (rgb << 8) + red;
+                rgb = (rgb << 8) + green;
+                rgb = (rgb << 8) + blue;
+
+                //insert in new image
+                modifiedImage.setRGB(col, row, rgb);
+            }
+        }
+
+        try {
+            File example = new File("projtest.png");
+            ImageIO.write(modifiedImage, "png", example);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+            throw e;
+        }
     }
 }
