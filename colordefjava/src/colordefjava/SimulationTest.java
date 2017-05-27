@@ -14,6 +14,7 @@ public class SimulationTest {
 			File tree = new File("apples.jpg");
 			BufferedImage image = ImageIO.read(tree);
 			simulation.readIMG(image,1);
+			simulation.modifyIMG(image, 1);
 			System.out.println("success");
 			;
 		} catch (IOException e) {
