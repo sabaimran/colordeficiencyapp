@@ -12,13 +12,13 @@
     <string name="snake">Snake Vision</string>
     <string name="app_about">AltVis is an app that allows you to see the world in a different way. We created 2 different modes for that:
 \n\n
-- A Color-Blind help tool that allows the user to modify the colors of the image/camera by running its finger across the screen. The default image will be as a color-blind people would see it (we implemented 3 different cases of color-blind people : protanopes, deuteranopes and tritanopes).
+- A Color blind help tool that allows the user to modify the colors of the image/camera by running its finger across the screen. The default image will be as a color blind people would see it (we implemented 3 different cases of color blindness : protanopia, deuteranopia and tritanopia).
 \n
-- An Animal Vision simulator that simulates the world as an animal would see it. We implemented visions of cats, dogs and snakes. Keep in mind that animals have different sensors than us, so it\'s impossible to reproduce it exactly.
+- An Animal Vision simulator that simulates the world as an animal would see it. We implemented the visions of the bumblebee, the white-tailed deer, and the Estrildid Finch (a bird). We also simulated the vision of a red dragon to have results in the red part of the color spectrum. Keep in mind that animals have different sensors than us, so it\'s impossible to reproduce it exactly, it\'s only a simulation.
 \n\n\n
 This app was developped in the scope of the EPFL course \"Computational Photography\" (given by professor Sabine Sünstruck) by a group of 4 students:\n
-Amimul Ihsan\n
 Chiara Orvati\n
+Ihsan Aquil\n
 Saba Imran\n
 Yannick Grimault\n\n
 The project was supervised by Sami Arpa.</string>
