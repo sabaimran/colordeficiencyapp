@@ -4,7 +4,7 @@
     android:id="@+id/activity_camera"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.example.jean.recolorize.CameraActivity">
+    tools:context="computationalphotography.recolorize.CameraActivity">
     <org.opencv.android.JavaCameraView
 
 
