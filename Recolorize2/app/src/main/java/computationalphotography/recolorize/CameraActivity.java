@@ -93,13 +93,32 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         Intent intent = getIntent();
         String mode = intent.getStringExtra("mode");
 
+        SeekBar slider = (SeekBar) findViewById(R.id.slider);
+
         if("color blind".equals(mode)){
-            // Do things
+            // TODO: Do things
+
+            // Set up Seekbar listener. Might need to fetch other views first !
+            slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                    // TODO: Do things
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+                    // TODO: Do things
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                    // TODO: Do things
+                }
+            });
         } else if("animal".equals(mode)){
-            // Do other things
+            // TODO: Do other things
 
             // Delete slider that is useless in this mode
-            SeekBar slider = (SeekBar) findViewById(R.id.slider);
             LinearLayout parent = (LinearLayout) slider.getParent();
             parent.removeView(slider);
         }
@@ -170,5 +189,13 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         mRgba=inputFrame.rgba();
         Imgproc.cvtColor(mRgba,imgGray, Imgproc.COLOR_RGB2Lab);
         return imgGray;
+    }
+
+    public void cameraButton(View view){
+        // Does nothing
+    }
+
+    public void galleryButton(View view){
+        // Does nothing
     }
 }

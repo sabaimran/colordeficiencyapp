@@ -41,6 +41,7 @@ public class AnimalActivity extends Activity {
                 CameraActivity.class);
         cameraActivityIntent.putExtra("mode", "animal");
 
+        // TODO: Set useful parameters
         switch (mode){
             case 0:
                 // Bumblebee

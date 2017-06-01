@@ -37,6 +37,7 @@ public class ColorBlindActivity extends Activity {
                 CameraActivity.class);
         cameraActivityIntent.putExtra("mode", "color blind");
 
+        // TODO: Set useful parameters
         switch (mode){
             // Pass arguments to the Intent object
             case 0:
