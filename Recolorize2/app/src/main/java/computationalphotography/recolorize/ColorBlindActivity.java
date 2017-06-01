@@ -33,24 +33,29 @@ public class ColorBlindActivity extends Activity {
     }
 
     public void startCameraActivity(int mode) {
-        String name;
+        Intent cameraActivityIntent = new Intent(ColorBlindActivity.this,
+                CameraActivity.class);
+        cameraActivityIntent.putExtra("mode", "color blind");
+
         switch (mode){
+            // Pass arguments to the Intent object
             case 0:
+                // Protanopia
                 break;
             case 1:
+                // Deuteranopia
                 break;
             case 2:
+                // Tritanopia
                 break;
             default:
-                String errorMessage = "--unknown--" + " is not implemented yet.";
+                // Should not happen
+                String errorMessage = "--unknown-- is not implemented.";
                 Toast.makeText(ColorBlindActivity.this, errorMessage, Toast.LENGTH_LONG).show();
                 break;
         }
 
-        Intent colorBlindActivityIntent = new Intent(ColorBlindActivity.this,
-                CameraActivity.class);
-        startActivity(colorBlindActivityIntent);
-
+        startActivity(cameraActivityIntent);
     }
 
     @Override

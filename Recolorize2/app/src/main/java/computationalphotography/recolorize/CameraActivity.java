@@ -1,6 +1,7 @@
 package computationalphotography.recolorize;
 
 //import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
@@ -21,6 +22,8 @@ import android.support.annotation.NonNull;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.ViewAnimator;
 import android.util.Log;
 import android.view.SurfaceView;
@@ -82,9 +85,24 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
+
         javaCameraView =(JavaCameraView)findViewById(R.id.java_camera_view);
         javaCameraView.setVisibility(SurfaceView.VISIBLE);
         javaCameraView.setCvCameraViewListener(this);
+
+        Intent intent = getIntent();
+        String mode = intent.getStringExtra("mode");
+
+        if("color blind".equals(mode)){
+            // Do things
+        } else if("animal".equals(mode)){
+            // Do other things
+
+            // Delete slider that is useless in this mode
+            SeekBar slider = (SeekBar) findViewById(R.id.slider);
+            LinearLayout parent = (LinearLayout) slider.getParent();
+            parent.removeView(slider);
+        }
     }
 
     @Override

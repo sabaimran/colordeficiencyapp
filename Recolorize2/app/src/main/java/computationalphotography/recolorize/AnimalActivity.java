@@ -1,6 +1,7 @@
 package computationalphotography.recolorize;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,27 +37,30 @@ public class AnimalActivity extends Activity {
     }
 
     public void startCameraActivity(int mode) {
-        String name;
+        Intent cameraActivityIntent = new Intent(AnimalActivity.this,
+                CameraActivity.class);
+        cameraActivityIntent.putExtra("mode", "animal");
+
         switch (mode){
             case 0:
-                name = "Bumblebee Vision";
+                // Bumblebee
                 break;
             case 1:
-                name = "Deer Vision";
+                // Deer
                 break;
             case 2:
-                name = "Bird Vision";
+                // Bird
                 break;
             case 3:
-                name = "Dragon Vision";
+                // Dragon
                 break;
             default:
-                name = "--unknown--";
+                String errorMessage = "--unknown-- is not implemented.";
+                Toast.makeText(AnimalActivity.this, errorMessage, Toast.LENGTH_LONG).show();
                 break;
         }
 
-        String errorMessage = name + " is not implemented yet.";
-        Toast.makeText(AnimalActivity.this, errorMessage, Toast.LENGTH_LONG).show();
+        startActivity(cameraActivityIntent);
     }
 
     @Override
