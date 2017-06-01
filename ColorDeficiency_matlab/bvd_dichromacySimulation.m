@@ -12,7 +12,7 @@ LMStoRGB = inv(RGBtoLMS);
 % LMS constants from Intellignet Modification for daltonization process of
 % digitized paintings
         
-img_name = 'landscape';
+img_name = 'apples';
 
 rgb_img = im2double(imread(strcat(img_name, '.jpg')));
 % disp(rgb_img);
@@ -27,7 +27,7 @@ Q(:,:,2) = rgb_img(:,:,1)*RGBtoLMS(2,1)+rgb_img(:,:,2)*RGBtoLMS(2,2)+rgb_img(:,:
 % short 
 Q(:,:,3) = rgb_img(:,:,1)*RGBtoLMS(3,1)+rgb_img(:,:,2)*RGBtoLMS(3,2)+rgb_img(:,:,3)*RGBtoLMS(3,3);
 
-%% for protanopes from from Intellignet Modification for daltonization process of digitized paintings
+%% for protanopes (missing L) from Intellignet Modification for daltonization process of digitized paintings
 PROT = [[0,2.02344,-2.5281]
         [0,1,0]
         [0,0,1]];

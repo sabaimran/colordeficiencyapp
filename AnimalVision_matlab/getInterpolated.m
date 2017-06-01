@@ -1,7 +1,7 @@
 %%% Author: Chiara Orvati, 231027
 
 function interpolated = getInterpolated(samplePoints, spectrum, x)
-% returns the the value of the spectrum at wavelength x using interpolation
+% returns the value of the spectrum at wavelength x using interpolation
 % x must be between 380-720nm
 
 if(~(320 <= x && x<= 720))
