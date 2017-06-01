@@ -8,7 +8,6 @@ im = imread('fruits.jpg');
 imd = im2double(im);
 
 %% define sensitivities/ cones
-%HVS: 
 %(blue: 435 nm // green : 546 nm // red: 700 nm)
 %DEER: 455 nm // 537 nm
 sensitivities = [380 445 508 565]; %ASCENDING ORDER!
