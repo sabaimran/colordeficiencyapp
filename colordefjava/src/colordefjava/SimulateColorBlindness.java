@@ -125,10 +125,15 @@ public class SimulateColorBlindness {
 	1 for DEUT
 	2 for TRIT
 	
+	delta: 
+	for PROT: [-1,1]
+	for DEUT: [-0.375,0.375]
+	for TRIT: [-0.1,0.1]
+	
+	
 	output: a modified coefficient matrix
 	*/
-	public Matrix changeCoefficients(int typeOfDeficiency) {
-		double delta = -0.1;
+	public Matrix changeCoefficients(int typeOfDeficiency, double delta) {
 		Matrix temp = null;
 		
 		switch(typeOfDeficiency) {
@@ -171,7 +176,7 @@ public class SimulateColorBlindness {
 		Matrix inRGB = LMStoRGB.times(newPixel);
 		return inRGB;		
 	}
-	public void modifyIMG(BufferedImage image, int typeOfDeficiency) throws IOException{
+	public void modifyIMG(BufferedImage image, int typeOfDeficiency, double delta) throws IOException{
 		int w = image.getWidth();
 		int h = image.getHeight();
 		//create new image of same height and width. populate it with the transformed pixels
@@ -192,7 +197,7 @@ public class SimulateColorBlindness {
 				Matrix RGBPixel = new Matrix(new double[][] {{R},{G},{B}});
 				Matrix swag = null;
 				
-				Matrix coefficients = changeCoefficients(typeOfDeficiency);
+				Matrix coefficients = changeCoefficients(typeOfDeficiency, delta);
 				swag = projectionSlider(RGBPixel, coefficients);
 				
 				double[][] newRGB = swag.getArray();
