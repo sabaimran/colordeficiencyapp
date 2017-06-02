@@ -1,3 +1,7 @@
+/**
+ * Author : Chiara Orvati
+ */
+
 package main;
 
 import java.awt.FlowLayout;

@@ -1,3 +1,7 @@
+/**
+ * Author : Chiara Orvati
+ */
+
 package colour;
 
 //using version 3.6.1 of Apache Commons Math
