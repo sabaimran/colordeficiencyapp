@@ -1,3 +1,7 @@
+/**
+ * Author : Chiara Orvati
+ */
+
 package math;
 
 public class Math {

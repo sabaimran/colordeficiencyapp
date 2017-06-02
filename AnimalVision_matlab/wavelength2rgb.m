@@ -18,8 +18,8 @@ l = floor(lambda/10);
 % for every bin of 10 values the value at wavelength xx5 nm has been taken
 % ex: for the bin 380-389nm, the value at 385 nm was taken
 switch l
-    %wavelength from 380-389 nm
     case 38
+        %wavelength from 380-389 nm
         r = 111;
         g = 0;
         b = 119;

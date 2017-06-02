@@ -1,0 +1,3 @@
+Recolorize2 (whole folder, but rename the folder before submitting)
+AnimalVision_matlab (whole folder except 1 image, choose which one and correct main accordingly)
+ColorDeficiency_matlab (3 .m files (all except colorspaceConversion) plus 1 image, and correct bvd_dichromacySimulation.m accordingly)

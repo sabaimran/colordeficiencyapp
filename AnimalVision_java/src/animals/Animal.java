@@ -1,3 +1,7 @@
+/**
+ * Author : Chiara Orvati
+ */
+
 package animals;
 
 import colour.Colour;

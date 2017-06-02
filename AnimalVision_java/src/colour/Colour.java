@@ -1,12 +1,9 @@
 /**
- * 
+ * Author : Chiara Orvati
  */
+
 package colour;
 
-/**
- * @author chiara
- *
- */
 public class Colour {
 
 	double r, g, b;
